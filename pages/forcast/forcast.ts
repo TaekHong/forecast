@@ -14,13 +14,14 @@ import 'rxjs/add/operator/map';
   templateUrl: 'forcast.html'
 })
 export class Forcast {
-  
+   forcast: [];
+    weather: [];
 
   constructor(public navCtrl: NavController,public navParams: NavParams) {
 
-  let weatherList=navParams.get('weather');
+  let forcast=navParams.get('weather');
   console.log( 'Forcast::constructor()', this.navParams.data );
-  console.log( 'Forcast::constructor()', weatherList );
+  console.log( 'Forcast::constructor()', forcast );
 
 
   }

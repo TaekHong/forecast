@@ -15,13 +15,12 @@
 
 <ion-content padding>
   <ion-list>
-<ion-item ion-item *ngFor="let weather of weatherList">
-  <ion-thumbnail item-left>
-    <img src="{{'http://openweathermap.org/img/w/'+weather.weather[0].icon+'.png'}}">
-  </ion-thumbnail>
-  <h2>{{weather.dt*1000 | date: 'EEEE'}}</h2>
-  <h3>High: {{weather.temp.max}}</h3>
-  <p> Low: {{weather.temp.min}}</p>
+  <ion-item ion-item *ngFor='let weather of forcast'>
+
+  <h2>아무거나떠라</h2>
+  <h3>{{a.name}}</h3>
+  <p> Low: {{a.main.temp_min}} High:
+  {{a.main.temp_max}}</p>
   </ion-item>
   </ion-list>
 </ion-content>
