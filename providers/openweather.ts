@@ -23,4 +23,13 @@ export class Openweather {
       url += '&q=' + city + ',' + country;
       return this.http.get(url);
     }
+
+    getForcastById(id: string){
+      let url= this.baseURL + 'forecast/daily?';
+      url += 'id='+ id;
+      url += '&appid=' + this.appId;
+      url += '&cnt=7&units=metric';
+      return this.http.get(url);
+    }
+
 }

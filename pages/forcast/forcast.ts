@@ -2,32 +2,27 @@ import { Component } from '@angular/core';
 import { NavController , NavParams} from 'ionic-angular';
 import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
+import {Openweather} from '../../providers/openweather';
 
-/*
-  Generated class for the Forcast page.
-
-  See http://ionicframework.com/docs/v2/components/#navigation for more info on
-  Ionic pages and navigation.
-*/
 @Component({
   selector: 'page-forcast',
   templateUrl: 'forcast.html'
 })
 export class Forcast {
-   forcast: [];
-    weather: [];
+  weatherList = [];
+  //items: any;
 
-  constructor(public navCtrl: NavController,public navParams: NavParams) {
+  weatherList_original: any;
+  constructor(public navCtrl: NavController,public navParams: NavParams,
+  public weather : Openweather) {
+    //let items=navParams.get('weather1');
+    this.weatherList.push(navParams.get('weather1'));
+    this.weather.getForcastById(weatherList.id).subscribe(
+    response => {
+      this.weatherList=this.weatherList_original=response.json();
+    }
+    );
 
-  let forcast=navParams.get('weather');
-  console.log( 'Forcast::constructor()', this.navParams.data );
-  console.log( 'Forcast::constructor()', forcast );
-
-
-  }
-
-  ionViewDidLoad() {
-    console.log('Hello Forcast Page');
   }
 
 }
